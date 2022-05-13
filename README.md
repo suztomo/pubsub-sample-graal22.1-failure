@@ -70,3 +70,10 @@ Error: Image build request failed with exit status 1
 The dependency of this project is only gax-grpc. When I remove the dependency,
 the build passes. This means that some features or metadata configured  in
 gax-grpc artifact is not compatible with GraalVM 22.1.0's behavior.
+
+# Attempts I tried
+
+## Only com.google.api:gax
+
+It just worked. So no problem in `com.google.api:gax`
+
