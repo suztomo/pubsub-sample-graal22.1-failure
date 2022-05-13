@@ -15,8 +15,8 @@ final class GrpcNettyFeature implements Feature {
     /** Miscellaneous classes that need to be registered coming from various JARs. */
     private static void loadMiscClasses(BeforeAnalysisAccess access) {
         // This commented out line is the root cause of the problem
-        // registerClassForReflection(access, "java.lang.management.ManagementFactory");
+        registerClassForReflection(access, "java.lang.management.ManagementFactory");
 
-        registerClassForReflection(access, "java.lang.management.RuntimeMXBean");
+        // registerClassForReflection(access, "java.lang.management.RuntimeMXBean");
     }
 }
