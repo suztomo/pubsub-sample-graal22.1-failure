@@ -51,17 +51,6 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
       <build>
         <plugins>
           <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin
-            </artifactId> <!-- Must use older version of surefire plugin for native-image testing. -->
-            <version>2.22.2</version>
-            <configuration>
-              <includes>
-                <include>**/*IT</include>
-              </includes>
-            </configuration>
-          </plugin>
-          <plugin>
             <groupId>org.graalvm.buildtools</groupId>
             <artifactId>native-maven-plugin</artifactId>
             <version>0.9.11</version>
@@ -79,16 +68,8 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
                 <id>build-native</id>
                 <goals>
                   <goal>build</goal>
-                  <goal>test</goal>
                 </goals>
                 <phase>package</phase>
-              </execution>
-              <execution>
-                <id>test-native</id>
-                <goals>
-                  <goal>test</goal>
-                </goals>
-                <phase>test</phase>
               </execution>
             </executions>
           </plugin>

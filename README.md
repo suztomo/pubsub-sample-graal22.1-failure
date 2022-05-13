@@ -11,7 +11,7 @@ OpenJDK 64-Bit Server VM GraalVM CE 22.1.0 (build 11.0.15+10-jvmci-22.1-b06, mix
 ========================================================================================================================
 GraalVM Native Image: Generating 'native-image-sample' (executable)...
 ========================================================================================================================
-[1/7] Initializing...                                                                                    (7.2s @ 0.35GB)
+[1/7] Initializing...                                                                                    (6.9s @ 0.42GB)
  Version info: 'GraalVM 22.1.0 Java 11 CE'
  C compiler: cc (apple, x86_64, 13.1.6)
  Garbage collector: Serial GC
@@ -21,11 +21,11 @@ GraalVM Native Image: Generating 'native-image-sample' (executable)...
   - com.google.api.gax.nativeimage.GoogleJsonClientFeature
   - com.google.api.gax.nativeimage.OpenCensusFeature
   - com.oracle.svm.thirdparty.gson.GsonFeature
-[2/7] Performing analysis...  [*]                                                                       (13.9s @ 1.63GB)
-   4,933 (81.71%) of  6,037 classes reachable
-   7,218 (60.09%) of 12,011 fields reachable
-  31,486 (60.43%) of 52,100 methods reachable
-     319 classes,   945 fields, and 5,976 methods registered for reflection
+[2/7] Performing analysis...  [*]                                                                       (14.1s @ 1.66GB)
+   4,888 (81.93%) of  5,966 classes reachable
+   7,175 (60.14%) of 11,931 fields reachable
+  31,073 (60.23%) of 51,593 methods reachable
+     320 classes,   945 fields, and 5,976 methods registered for reflection
 
 Fatal error: org.graalvm.compiler.debug.GraalError: com.oracle.graal.pointsto.constraints.UnsupportedFeatureException: Detected a PlatformManagedObject (a MXBean defined by the virtual machine) in the image heap. This bean is introspecting the VM that runs the image builder, i.e., a VM instance that is no longer available at image runtime. Class of disallowed object: com.sun.management.internal.HotSpotDiagnostic  To see how this object got instantiated use --trace-object-instantiation=com.sun.management.internal.HotSpotDiagnostic. The object was probably created by a class initializer and is reachable from a static field. You can request class initialization at image runtime by using the option --initialize-at-run-time=<class-name>. Or you can write your own initialization methods and call them explicitly from your main entry point.
 	at com.oracle.graal.pointsto.util.AnalysisFuture.setException(AnalysisFuture.java:49)
@@ -54,15 +54,15 @@ Caused by: com.oracle.graal.pointsto.constraints.UnsupportedFeatureException: De
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	... 10 more
 ------------------------------------------------------------------------------------------------------------------------
-                        1.1s (5.0% of total time) in 19 GCs | Peak RSS: 2.66GB | CPU load: 5.74
+                        1.1s (4.9% of total time) in 19 GCs | Peak RSS: 2.71GB | CPU load: 5.89
 ========================================================================================================================
 Failed generating 'native-image-sample' after 21.4s.
 Error: Image build request failed with exit status 1
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  26.509 s
-[INFO] Finished at: 2022-05-12T22:10:52-04:00
+[INFO] Total time:  23.871 s
+[INFO] Finished at: 2022-05-12T22:18:12-04:00
 [INFO] ------------------------------------------------------------------------
 ...
 ```
